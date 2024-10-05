@@ -1,0 +1,61 @@
+{
+    "dashboard": {
+      "id": null,
+      "title": "MySQL Performance Dashboard",
+      "timezone": "browser",
+      "panels": [
+        {
+          "type": "graph",
+          "title": "MySQL Query Execution Time",
+          "targets": [
+            {
+              "expr": "rate(mysql_global_status_queries_total[5m])",
+              "legendFormat": "{{instance}}",
+              "refId": "A"
+            }
+          ],
+          "yaxes": [
+            {
+              "format": "short",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "type": "graph",
+          "title": "CPU Usage",
+          "targets": [
+            {
+              "expr": "rate(process_cpu_seconds_total[5m])",
+              "legendFormat": "{{instance}}",
+              "refId": "B"
+            }
+          ],
+          "yaxes": [
+            {
+              "format": "percent",
+              "min": 0
+            }
+          ]
+        },
+        {
+          "type": "graph",
+          "title": "Memory Usage",
+          "targets": [
+            {
+              "expr": "rate(node_memory_MemAvailable_bytes[5m])",
+              "legendFormat": "{{instance}}",
+              "refId": "C"
+            }
+          ],
+          "yaxes": [
+            {
+              "format": "bytes",
+              "min": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
