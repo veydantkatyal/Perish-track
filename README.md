@@ -33,9 +33,6 @@ Installation and Setup
 
 To begin, clone the PerishTrack repository to your local environment:
 
-bash
-
-Copy code
 
 `git clone https://github.com/yourusername/PerishTrack.git
 cd PerishTrack`
@@ -48,9 +45,6 @@ Create and set up a MySQL database, then import the necessary SQL files to initi
 
 Log into MySQL from the terminal using root or appropriate user privileges:
 
-bash
-
-Copy code
 
 `mysql -u root -p`
 
@@ -58,9 +52,6 @@ Copy code
 
 Once logged in, create a new database called `perishtrack_db`:
 
-sql
-
-Copy code
 
 `CREATE DATABASE perishtrack_db;`
 
@@ -68,9 +59,6 @@ Copy code
 
 After creating the database, import the schema and initial data:
 
-bash
-
-Copy code
 
 `mysql -u root -p perishtrack_db < ./sql/create_tables.sql
 mysql -u root -p perishtrack_db < ./sql/insert_data.sql`
@@ -78,10 +66,6 @@ mysql -u root -p perishtrack_db < ./sql/insert_data.sql`
 #### Step 4: Load Stored Procedures and Triggers
 
 Lastly, load the stored procedures and triggers into the database:
-
-bash
-
-Copy code
 
 `mysql -u root -p perishtrack_db < ./sql/stored_procedures.sql
 mysql -u root -p perishtrack_db < ./sql/triggers.sql`
@@ -92,9 +76,6 @@ mysql -u root -p perishtrack_db < ./sql/triggers.sql`
 
 To create a backup of your database, use the provided shell script:
 
-bash
-
-Copy code
 
 `./scripts/backup_db.sh`
 
@@ -104,29 +85,12 @@ This will generate a backup and save it in the `sql/backups/` directory.
 
 To restore the database from a backup file, run the following command:
 
-bash
-
-Copy code
 
 `mysql -u root -p perishtrack_db < ./sql/backups/backup_YYYY-MM-DD.sql`
 
-### 4\. Continuous Integration (CI) Setup
 
-PerishTrack uses **GitHub Actions** for continuous integration, ensuring that any changes to the database schema or stored procedures are automatically applied when code is pushed to the repository.
 
-#### Setting Up GitHub Secrets
-
-To configure GitHub Actions for automatic database migration, you'll need to add the following environment variables to your GitHub repository secrets:
-
-1.  Go to your repository on GitHub.
-2.  Navigate to **Settings** > **Secrets** > **New repository secret**.
-3.  Add the following secrets:
-    -   `DB_HOST`
-    -   `DB_USER`
-    -   `DB_PASSWORD`
-    -   `DB_NAME`
-
-### 5\. Monitoring Setup
+### 4\. Monitoring Setup
 
 #### Prometheus Configuration
 
@@ -143,7 +107,7 @@ To visualize performance data, install Grafana and set up the provided dashboard
 1.  Install Grafana on your server.
 2.  Import the `grafana_dashboard.json` file to visualize MySQL performance metrics and system statistics.
 
-### 6\. Load Testing
+### 5\. Load Testing
 
 #### JMeter Setup
 
@@ -165,7 +129,7 @@ Troubleshooting
 Contributing
 ------------
 
-We welcome contributions to PerishTrack! If you'd like to contribute, please fork the repository and submit a pull request. We encourage improvements in code, documentation, and features.
+If you'd like to contribute, please fork the repository and submit a pull request. Improvements in code, documentation, and features are appreciated.
 
 License
 -------
